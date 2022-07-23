@@ -40,7 +40,9 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: app-miner-xmrig.zip
+          files: |
+            app-miner-xmrig.zip
+            .itw3.json
 
 
 
