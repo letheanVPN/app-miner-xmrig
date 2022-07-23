@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -33,21 +36,20 @@
             "styles": [
               "src/styles.sass"
             ],
+            "allowedCommonJsDependencies": [
+              "moment-timezone",
+              "mousetrap",
+              "ajv",
+              "codemirror",
+              "xterm",
+              "camelcase",
+              "xterm-addon-fit"
+            ],
             "scripts": []
           },
           "configurations": {
             "production": {
               "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
               ],
               "fileReplacements": [
                 {

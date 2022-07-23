@@ -14,6 +14,8 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2017",
@@ -28,5 +30,28 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
+  },
+  "paths": {
+    "@service/*": [
+      "src/app/services/*"
+    ],
+    "@module/*": [
+      "src/app/modules/*"
+    ],
+    "@plugin/*": [
+      "src/app/plugins/*"
+    ],
+    "@interface/*": [
+      "src/app/interfaces/*"
+    ],
+    "@data/*": [
+      "src/app/data/*"
+    ],
+    "@pipe/*": [
+      "src/app/pipes/*"
+    ],
+    "@env/*": [
+      "src/environments/*"
+    ]
   }
 }

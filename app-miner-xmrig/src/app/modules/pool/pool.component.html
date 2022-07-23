@@ -1,0 +1,74 @@
+
+<div fxFlex="100" *ngIf="poolInfo" fxLayout="column, wrap">
+    <ngx-toolbar >
+        <ngx-toolbar-title>
+            <span class="tag">HashVault Reported Stats</span>
+        </ngx-toolbar-title>
+        <ngx-toolbar-content>
+            <i>Hourly AVG Hashrate: <strong>{{poolInfo['collective']['avg1hashRate']}}</strong></i>
+
+            <i>Last Share: <strong>{{poolInfo['collective']['lastShare'] | amTimeAgo }}</strong></i>
+            <i>Unconfirmed Balance: <strong>{{poolInfo['revenue']['unconfirmedBalance']['collective'].total}}</strong></i>
+            <i>Confirmed Balance: <strong>{{poolInfo['revenue']['confirmedBalance']}}</strong></i>
+        </ngx-toolbar-content>
+    </ngx-toolbar>
+    <div fxFlex="100">
+        <div class="flex">
+            <div class="flex-item">
+                <div style="display: block;">
+                    <canvas baseChart width="400" height="400"
+                            [data]="lineChartData"
+                            [options]="lineChartOptions"
+                            [type]="lineChartType"></canvas>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div fxFlex="50">
+        <mat-list dense>
+            <mat-list-item>PPLNS Payment Scheme</mat-list-item>
+            <mat-list-item><p>Hashrate:</p> <p class="text-right">{{ poolInfo['collective']['hashRate']| hashrate }}</p></mat-list-item>
+            <mat-list-item><p>Avg Hashrate:</p> <p class="text-right">{{ poolInfo['collective']['avg1hashRate']| hashrate }} | {{ poolInfo['collective']['avg3hashRate']| hashrate }}| {{ poolInfo['collective']['avg6hashRate']| hashrate }}| {{ poolInfo['collective']['avg24hashRate']| hashrate }}</p></mat-list-item>
+            <mat-list-item><p>Current Effort:</p> <p class="text-right" [style]="{color: poolInfo['collective']['currentEffort'] | effort}">{{ poolInfo['collective']['currentEffort'] }}%</p></mat-list-item>
+            <mat-list-item><p>30s Share Rate:</p> <p class="text-right">{{ poolInfo['collective']['shareRate'] }}</p></mat-list-item>
+            <mat-list-item><p>Total Hashes:</p> <p class="text-right">{{ poolInfo['collective']['totalHashes'] }}</p></mat-list-item>
+            <mat-list-item><p>Total Shares:</p> <p class="text-right">{{ poolInfo['collective']['validShares'] }}</p></mat-list-item>
+        </mat-list>
+    </div>
+   <div fxFlex="50">
+       <mat-list dense>
+           <mat-list-item>Solo Payment Scheme</mat-list-item>
+           <mat-list-item><p>Hashrate:</p> <p class="text-right">{{ poolInfo['solo']['hashRate']| hashrate }}</p></mat-list-item>
+           <mat-list-item><p>Avg Hashrate:</p> <p class="text-right">{{ poolInfo['solo']['avg1hashRate']| hashrate }} | {{ poolInfo['solo']['avg3hashRate']| hashrate }}| {{ poolInfo['solo']['avg6hashRate']| hashrate }}| {{ poolInfo['solo']['avg24hashRate']| hashrate }}</p></mat-list-item>
+           <mat-list-item><p>Current Effort:</p> <p class="text-right" [style]="{color: poolInfo['solo']['currentEffort'] | effort}">{{ poolInfo['solo']['currentEffort'] }}%</p></mat-list-item>
+           <mat-list-item><p>30s Share Rate:</p> <p class="text-right">{{ poolInfo['solo']['shareRate'] }}</p></mat-list-item>
+           <mat-list-item><p>Total Hashes:</p> <p class="text-right">{{ poolInfo['solo']['totalHashes'] }}</p></mat-list-item>
+           <mat-list-item><p>Total Shares:</p> <p class="text-right">{{ poolInfo['solo']['validShares'] }}</p></mat-list-item>
+       </mat-list>
+   </div>
+    <div fxFlex="100">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Miner Name</th>
+                <th>Hashrate</th>
+                <th>1, 3, 6 & 24h Avg Hashrate</th>
+                <th>Active Miners</th>
+                <th>Worker Effort</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let worker of poolInfo['collectiveWorkers']">
+                <td>{{ worker['name'] }}</td>
+                <td>{{ worker['hashrate'] | hashrate }}</td>
+                <td>{{ worker['avg1hashRate'] | hashrate }} | {{ worker['avg3hashRate'] | hashrate }} | {{ worker['avg6hashRate'] | hashrate }} | {{ worker['avg24hashRate'] | hashrate }} | </td>
+                <td>{{ worker['activeMiners'] }}</td>
+                <td [style]="{color: worker['currentEffort'] | effort}">{{ worker['currentEffort'] }}%</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
