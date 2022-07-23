@@ -1,0 +1,15 @@
+{
+  "code": "app-miner-xmrig",
+  "type": "app",
+  "name": "Xmrig GUI",
+  "install": "xmrig",
+  "version": "v0.0.6",
+  "depends": ["bin-miner-xmrig"],
+  "app": {
+    "type": "zip",
+    "url": "https://github.com/dAppServer/app-miner-xmrig/releases/latest/download/directory-miner-xmrig.zip"
+  },
+  "menu": {
+    "main": {"title": "Xmrig Miner", "icon": ["fas", "person-digging"]}
+  }
+}
