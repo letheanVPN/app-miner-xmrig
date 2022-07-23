@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/app-miner-xmrig",
+            "outputPath": "../dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -38,12 +38,14 @@
             ],
             "allowedCommonJsDependencies": [
               "moment-timezone",
+              "moment",
               "mousetrap",
               "ajv",
               "codemirror",
               "xterm",
               "camelcase",
-              "xterm-addon-fit"
+              "xterm-addon-fit",
+              "filesize"
             ],
             "scripts": []
           },
