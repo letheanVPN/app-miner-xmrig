@@ -7,7 +7,7 @@
   "depends": ["bin-miner-xmrig"],
   "app": {
     "type": "zip",
-    "url": "https://github.com/dAppServer/app-miner-xmrig/releases/latest/download/app-miner-xmrig.zip"
+    "url": "https://github.com/letheanVPN/app-miner-xmrig/releases/latest/download/app-miner-xmrig.zip"
   },
   "menu": {
     "main": {"title": "Xmrig Miner", "icon": ["fas", "person-digging"]}
